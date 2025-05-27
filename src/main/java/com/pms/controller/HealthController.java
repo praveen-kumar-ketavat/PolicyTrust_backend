@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 	@GetMapping("/")
     public String health() {
+		
         return "Backend up!";
     }
 }
