@@ -36,6 +36,10 @@ public class CustomerController {
 //		return service.addCustomer(cust);
 //		
 //	}
+	@GetMapping("/")
+    public String healthCheck() {
+        return "Backend is running!";
+    }
 	
 	@PostMapping("/register")
     public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer cust) {   
