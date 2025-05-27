@@ -31,27 +31,12 @@ public class CustomerController {
 	@Autowired
 	CustomerService service;
 	
-//	@PostMapping("/register")
-//	public String addCustomer(@RequestBody Customer cust) {
-//		return service.addCustomer(cust);
-//		
-//	}
-	@GetMapping("/")
-    public String healthCheck() {
-        return "Backend is running!";
-    }
-	
 	@PostMapping("/register")
     public ResponseEntity<String> addCustomer(@Valid @RequestBody Customer cust) {   
         String response = service.addCustomer(cust);
         return ResponseEntity.ok(response);
     }
 	
-//	@PostMapping("/login")
-//	public String login(@RequestBody Customer cust) throws InvalidEntityException {
-//		return service.login(cust.getEmail(), cust.getPassword());
-//	}
-//	
 	@PostMapping("/login")
 	public ResponseEntity<Customer> login(@RequestBody Customer cust) throws InvalidEntityException {
 	     Customer loggedInCustomer = service.login(cust.getEmail(), cust.getPassword());
